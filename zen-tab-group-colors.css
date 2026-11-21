@@ -90,4 +90,10 @@
   &:is(:not([collapsed]), [has-active]) > .tab-group-container {
     border-inline-start: 2px solid var(--ztgc-folder-color);
   }
+
+  & > .tab-group-container > .tabbrowser-tab > .tab-stack > .tab-background {
+    margin: 0 !important;
+    min-height: calc(var(--tab-min-height) + 2 * var(--tab-margin-block)) !important;
+    border-radius: 0 !important;
+  }
 }
