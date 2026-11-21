@@ -12,7 +12,7 @@
   },
   "readme": "README.md",
   "author": "Local custom mod",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "tags": ["Zen Browser", "Folders", "Tab Groups", "Colors", "Customization"],
   "fork": ["zen"]
 }

@@ -87,7 +87,7 @@
     rotate: 225deg;
   }
 
-  &:not([collapsed]) > .tab-group-container {
+  &:is(:not([collapsed]), [has-active]) > .tab-group-container {
     border-inline-start: 2px solid var(--ztgc-folder-color);
   }
 }
