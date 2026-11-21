@@ -40,3 +40,35 @@ zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg rect,
 zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg polygon {
   fill: var(--ztgc-folder-color) !important;
 }
+
+/* Full-folder treatment: tint the entire folder area, not only its icon. */
+zen-folder[ztgc-colored="true"] {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 12px !important;
+  margin-block: 4px !important;
+  padding: 4px !important;
+  background: color-mix(in srgb, var(--ztgc-folder-color) 22%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ztgc-folder-color) 48%, transparent) !important;
+  overflow: hidden;
+}
+
+/* Folder title/header receives a stronger tint. */
+zen-folder[ztgc-colored="true"] .tab-group-folder,
+zen-folder[ztgc-colored="true"] .tab-group-folder-header,
+zen-folder[ztgc-colored="true"] .tab-group-folder-container {
+  background: color-mix(in srgb, var(--ztgc-folder-color) 34%, transparent) !important;
+  border-radius: 9px !important;
+}
+
+/* Keep the whole group visually unified; individual tabs stay readable. */
+zen-folder[ztgc-colored="true"] .tab,
+zen-folder[ztgc-colored="true"] .tabbrowser-tab {
+  background-color: transparent !important;
+  border-radius: 8px !important;
+}
+
+zen-folder[ztgc-colored="true"] .tab:hover,
+zen-folder[ztgc-colored="true"] .tabbrowser-tab:hover {
+  background-color: color-mix(in srgb, var(--ztgc-folder-color) 18%, transparent) !important;
+}
