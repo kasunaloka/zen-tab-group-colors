@@ -12,7 +12,7 @@
   const PANEL_ID = "ztgc-picker-panel";
   const POPUP_ID = "zenFolderActions";
   const PRESETS = [
-    "#A9BFFF", "#FFAD75", "#C78AFF", "#80E58B", "#F38BD1",
+    "#A8BCFF", "#FFB078", "#CC96FC", "#8AEB82", "#F38BD1",
     "#FF8989", "#FFDC72", "#80DDE2", "#D5D8DF", "#9B8CFF",
     "#70B7FF", "#FFA6C9", "#A7DCA0", "#E6B7FF", "#F5C58B"
   ];
@@ -89,10 +89,10 @@
     });
 
     const customRow = make("div", { class: "ztgc-custom-row" });
-    colorInput = make("input", { type: "color", class: "ztgc-color-input", value: "#A9BFFF", "aria-label": "Choose custom color" });
-    hexInput = make("input", { type: "text", class: "ztgc-hex-input", value: "#A9BFFF", maxlength: "7", spellcheck: "false" });
+    colorInput = make("input", { type: "color", class: "ztgc-color-input", value: PRESETS[0], "aria-label": "Choose custom color" });
+    hexInput = make("input", { type: "text", class: "ztgc-hex-input", value: PRESETS[0], maxlength: "7", spellcheck: "false" });
     preview = make("span", { class: "ztgc-preview" });
-    preview.style.background = "#A9BFFF";
+    preview.style.background = PRESETS[0];
     colorInput.addEventListener("input", () => setSelectedColor(colorInput.value));
     hexInput.addEventListener("change", () => {
       const value = hexInput.value.trim();
@@ -134,7 +134,7 @@
     if (!folder) return;
     if (!panel) buildPicker();
     activeFolder = folder;
-    const saved = readMap()[folderId(folder)] || "#A9BFFF";
+    const saved = readMap()[folderId(folder)] || PRESETS[0];
     setSelectedColor(saved);
     panel.openPopup(anchor || folder, "bottomcenter topleft", 0, 6, false, false);
   }

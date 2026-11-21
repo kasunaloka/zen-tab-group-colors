@@ -34,41 +34,60 @@
 .ztgc-button.primary { border-color: #8b7cff; background: #8b7cff; color: white; font-weight: 650; }
 .ztgc-button:hover { filter: brightness(1.08); }
 
-/* Folder icon color. Zen's native variable is set by the script. */
-zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg path,
-zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg rect,
-zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg polygon {
-  fill: var(--ztgc-folder-color) !important;
-}
-
-/* Full-folder treatment: tint the entire folder area, not only its icon. */
-zen-folder[ztgc-colored="true"] {
-  display: block;
-  box-sizing: border-box;
-  border-radius: 12px !important;
+/* Compact colored headers in the expanded sidebar. */
+:root[zen-sidebar-expanded="true"] zen-folder[ztgc-colored="true"] {
   margin-block: 4px !important;
-  padding: 4px !important;
-  background: color-mix(in srgb, var(--ztgc-folder-color) 22%, transparent) !important;
-  border: 1px solid color-mix(in srgb, var(--ztgc-folder-color) 48%, transparent) !important;
-  overflow: hidden;
-}
 
-/* Folder title/header receives a stronger tint. */
-zen-folder[ztgc-colored="true"] .tab-group-folder,
-zen-folder[ztgc-colored="true"] .tab-group-folder-header,
-zen-folder[ztgc-colored="true"] .tab-group-folder-container {
-  background: color-mix(in srgb, var(--ztgc-folder-color) 34%, transparent) !important;
-  border-radius: 9px !important;
-}
+  & > .tab-group-label-container {
+    box-sizing: border-box;
+    height: 26px !important;
+    min-height: 26px !important;
+    padding-inline: 8px 24px !important;
+    border-radius: 9px !important;
+    background-color: var(--ztgc-folder-color) !important;
+    color: #171717 !important;
 
-/* Keep the whole group visually unified; individual tabs stay readable. */
-zen-folder[ztgc-colored="true"] .tab,
-zen-folder[ztgc-colored="true"] .tabbrowser-tab {
-  background-color: transparent !important;
-  border-radius: 8px !important;
-}
+    &:hover {
+      background-color: color-mix(in srgb, var(--ztgc-folder-color), black 6%) !important;
+    }
 
-zen-folder[ztgc-colored="true"] .tab:hover,
-zen-folder[ztgc-colored="true"] .tabbrowser-tab:hover {
-  background-color: color-mix(in srgb, var(--ztgc-folder-color) 18%, transparent) !important;
+    &::before {
+      background-color: transparent !important;
+    }
+
+    & > .tab-group-folder-icon {
+      display: none !important;
+    }
+
+    & > :is(.tab-group-label, #tab-label-input) {
+      padding: 0 !important;
+      color: inherit !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+
+    &::after {
+      content: "";
+      display: block !important;
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 12px;
+      width: 5px;
+      height: 5px;
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      translate: 0 -70%;
+      rotate: 45deg;
+      pointer-events: none;
+    }
+  }
+
+  &:not([collapsed]) > .tab-group-label-container::after {
+    translate: 0 -30%;
+    rotate: 225deg;
+  }
+
+  &:not([collapsed]) > .tab-group-container {
+    border-inline-start: 2px solid var(--ztgc-folder-color);
+  }
 }
