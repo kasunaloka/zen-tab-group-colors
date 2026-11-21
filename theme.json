@@ -1,0 +1,18 @@
+{
+  "id": "zen-tab-group-colors",
+  "name": "Zen Tab Group Colors",
+  "description": "Choose a custom color for each Zen sidebar folder. Opens a color picker when a new folder is created and lets you change it later from the folder context menu.",
+  "scripts": {
+    "zen-tab-group-colors.uc.js": {
+      "include": ["chrome://browser/content/browser.xhtml"]
+    }
+  },
+  "style": {
+    "chrome": "zen-tab-group-colors.css"
+  },
+  "readme": "README.md",
+  "author": "Local custom mod",
+  "version": "0.1.0",
+  "tags": ["Zen Browser", "Folders", "Tab Groups", "Colors", "Customization"],
+  "fork": ["zen"]
+}

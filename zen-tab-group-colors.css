@@ -1,0 +1,42 @@
+/* Zen Tab Group Colors — picker UI */
+#ztgc-picker-panel {
+  --ztgc-surface: light-dark(#ffffff, #24252b);
+  --ztgc-text: light-dark(#202127, #f2f2f5);
+  --ztgc-muted: light-dark(#737782, #a7a9b2);
+  --ztgc-border: light-dark(#e4e5eb, #41434c);
+  color: var(--ztgc-text);
+}
+
+.ztgc-wrap {
+  box-sizing: border-box;
+  width: 286px;
+  padding: 15px;
+  border-radius: 13px;
+  background: var(--ztgc-surface);
+  color: var(--ztgc-text);
+  font: 13px system-ui, sans-serif;
+}
+.ztgc-heading { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+.ztgc-subtitle { color: var(--ztgc-muted); font-size: 11px; margin-bottom: 13px; }
+.ztgc-palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; }
+.ztgc-swatch {
+  width: 35px; height: 35px; border: 2px solid transparent; border-radius: 50%;
+  cursor: pointer; box-shadow: inset 0 0 0 1px #00000012; transition: transform .15s ease, border-color .15s ease;
+}
+.ztgc-swatch:hover { transform: scale(1.1); }
+.ztgc-swatch.selected { border-color: var(--ztgc-text); box-shadow: 0 0 0 2px var(--ztgc-surface), 0 0 0 3px var(--ztgc-text); }
+.ztgc-custom-row { display: flex; align-items: center; gap: 9px; margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--ztgc-border); }
+.ztgc-color-input { width: 34px; height: 34px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.ztgc-hex-input { width: 88px; padding: 7px 8px; border: 1px solid var(--ztgc-border); border-radius: 7px; background: transparent; color: var(--ztgc-text); font: 12px ui-monospace, monospace; }
+.ztgc-preview { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #0002; }
+.ztgc-actions { display: flex; gap: 7px; margin-top: 15px; }
+.ztgc-button { flex: 1; min-width: 0; padding: 8px 7px; border: 1px solid var(--ztgc-border); border-radius: 7px; background: transparent; color: var(--ztgc-text); font-size: 11px; cursor: pointer; }
+.ztgc-button.primary { border-color: #8b7cff; background: #8b7cff; color: white; font-weight: 650; }
+.ztgc-button:hover { filter: brightness(1.08); }
+
+/* Folder icon color. Zen's native variable is set by the script. */
+zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg path,
+zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg rect,
+zen-folder[ztgc-colored="true"] .tab-group-folder-icon svg polygon {
+  fill: var(--ztgc-folder-color) !important;
+}
